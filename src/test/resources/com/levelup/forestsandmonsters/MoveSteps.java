@@ -19,7 +19,7 @@ public class MoveSteps
     }
 
     @Given("Starts at YCoordinates {int}")
-    public void givenTheCharacterStartsAty(int startY)
+    public void givenTheCharacterStartsAtY(int startY)
     {
         this.startY = startY;
     }
