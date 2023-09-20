@@ -1,8 +1,12 @@
 package com.levelup.forestsandmonsters;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.awt.Point;
 
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MoveSteps 
@@ -40,4 +44,17 @@ public class MoveSteps
         this.currentPosition = status.currentPosition;
     }
 
+        @Then ("the character is now at position with XCoordinates {int}")
+        public void checkXCoordinates(int endX)
+        {
+            assertNotNull("Expected position not null",this.currentPosition);
+            assertEquals(endX, this.currentPosition.x);
+        }
+
+        @Then("YCoordinates {int}")
+        public void checkUYCoordinates(int endY)
+        {
+            assertNotNull("Expected position not null", this.currentPosition);
+            assertEquals(endY, this.currentPosition.y);            
+        }
 }
