@@ -2,14 +2,21 @@ package com.levelup.forestsandmonsters;
 
 import java.awt.Point;
 
-public class GameController {
+public class GameController 
+{
     // TODO: If your stakeholder wants to call this CHARACTER, change var name for
     // low representational gap
     static final String DEFAULT_CHARACTER_NAME = "Character";
-
     public class GameStatus {
         // TODO: Add other status data
         public String characterName = DEFAULT_CHARACTER_NAME;
+        public Point currentPosition;
+        public int moveCount;
+
+        public String toString()
+        {
+            return super.toString();
+        }
     }
 
     GameStatus status;
@@ -46,6 +53,16 @@ public class GameController {
     public void move(DIRECTION directionToMove) {
         // TODO: Implement move - should call something on another class
         // TODO: Should probably also update the game results
+    }
+
+    public void setCharacterPosition(Point coordinates)
+    {
+    }
+
+    public int getTotalPositions()
+    {
+        int totalPositions = 0;// Temporarily assigning some value.
+        return totalPositions;
     }
 
 }
