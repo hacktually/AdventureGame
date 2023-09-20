@@ -8,7 +8,9 @@ public class Character
 
     Character(){}
 
-    Character(String name){}
+    Character(String name){
+        this.name = name;
+    }
 
     public String getName()
     {
