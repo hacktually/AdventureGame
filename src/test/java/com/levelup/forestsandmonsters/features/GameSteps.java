@@ -7,23 +7,23 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class CreateCharacterSteps {
+public class GameSteps {
 
     GameController gc;
     String characterName;
 
-    @Given("player supplies the name {string}")
+    @Given("the character's name is {string}")
     public void givenTheCharactersNameIs(String characterName) {
         this.characterName = characterName;
-    }
+    }X
 
-    @When("the character is created")
+    @When("the character sets their name")
     public void whenTheCharacterSetsTheirName() {
         gc = new GameController();
         gc.createCharacter(characterName);
     }
 
-    @Then("the Game sets the character name to {string}")
+    @Then("the Game sets the character's name to {string}")
     public void thenTheGameSetsTheCharactersName(String expectedName) {
         assertEquals(expectedName, gc.getStatus().characterName);
     }

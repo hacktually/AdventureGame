@@ -1,27 +1,51 @@
 package com.levelup.forestsandmonsters;
 
+import com.levelup.forestsandmonsters.GameController.DIRECTION;
+
 public class Character {
-    static String DEFAULT_CHARACTER_NAME = "Default";
+
+    public static final String DEFAULT_NAME = "Erin";
     String name;
+    GameMap map = null;
+    Position currentPosition = null;
+    int moveCount = 0;
 
-    Character() {}
-
-    Character(String name) {
-        setName(name);
+    
+    public Character(){
+        this.name = DEFAULT_NAME;
+    }
+    
+    public Character(String name) {
+        if(name.trim().equals(""))
+            this.name = DEFAULT_NAME;
+        else
+            this.name = name;
+    }
+    
+    public String getName() {
+        return name;
     }
 
-    String getName(){
-        return this.name;
-    }
-    void setName(String name) {
-        this.name = name;
+    public void enterMap(GameMap map) {
+        this.map = map;
+        this.currentPosition = map.startingPosition;
     }
 
-    void enterMap (GameMap map) {
-        //TODO
+    public Position getPosition() {
+        return currentPosition;
     }
 
-    // Position getPosition() {}
+    public int getMoveCount() {
+        return moveCount;
+    }
 
-    // void move(Direction dir){}
+    public void move(DIRECTION direction) {
+        this.currentPosition = map.calculatePosition(this.currentPosition, direction);
+        moveCount++;
+    }
+
+    
+
+
+
 }

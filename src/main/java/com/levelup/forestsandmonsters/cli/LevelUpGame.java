@@ -28,7 +28,7 @@ public class LevelUpGame implements Quit.Command {
 
   @ShellMethodAvailability("notStartedCheck")
   @ShellMethod(value = "Create a character (characterName)", key = { "create-character", "create" })
-  public void createCharacter(@ShellOption(defaultValue = "Character") String characterName) {
+  public void createCharacter(@ShellOption(defaultValue = "Player") String characterName) {
     gameController.createCharacter(characterName);
     GameStatus status = gameController.getStatus();
 
@@ -40,10 +40,10 @@ public class LevelUpGame implements Quit.Command {
   public void startGame() {
     isGameStarted = true;
     gameController.startGame();
-    // TODO: Update this prompt. Also, do you want to get the game status and tell
-    // the character where their character is?
-    System.out.println("Welcome to Way of the Hunters! A creation of Team-63");
-    System.out.println("A grid will be invoked from this method with graphics in it.");
+    GameStatus status = gameController.getStatus();
+
+    System.out.println("Welcome to Forests and Monsters! You have entered a mysterious place.");
+    System.out.println(status.characterName + " is on position " + status.currentPosition.x + "," + status.currentPosition.y);
     System.out.println("Would you like to go North(N), South(S), East(E), West(W) or Exit(X)?");
   }
 
@@ -85,14 +85,15 @@ public class LevelUpGame implements Quit.Command {
   private void printSummary() {
     System.out.println("Exiting the mysterious land!");
     for (GameStatus status : gameHistory) {
-      // TODO: Override toString on game status to print pretty
       System.out.println(status);
     }
-    // TODO: Print anything else you committed to in your mockup
+    System.out.println("Number of moves taken:" + gameHistory.size());
   }
 
   private void updateStatus(GameStatus status) {
     this.gameHistory.add(status);
+    System.out
+        .println(status.characterName + " is on position " + status.currentPosition.x + "," + status.currentPosition.y);
   }
 
   public Availability startedCheck() {
