@@ -1,4 +1,4 @@
-package com.levelup.forestsandmonsters.cli;
+package com.levelup.forestsandmonsters;
 import java.awt.Point;
 
 public class Position {

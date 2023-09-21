@@ -21,7 +21,7 @@ public class Character {
         //TODO
     }
 
-    Position getPosition() {}
+    // Position getPosition() {}
 
-    void move(Direction dir){}
+    // void move(Direction dir){}
 }
