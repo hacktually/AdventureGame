@@ -20,6 +20,7 @@ public class GameController {
     GameStatus status;
 
     public GameController() {
+        TitleMethod.Title();
         status = new GameStatus();
     }
 
@@ -34,6 +35,7 @@ public class GameController {
     }
 
     public void startGame() {
+        TitleMethod.Title();
         map = new GameMap();
         if(character == null)
         {
