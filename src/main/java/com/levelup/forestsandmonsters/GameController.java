@@ -1,6 +1,8 @@
 package com.levelup.forestsandmonsters;
 
 import java.awt.Point;
+import java.util.Random;
+import com.levelup.forestsandmonsters.EnemyEvent;
 
 public class GameController {
     Character character;
@@ -56,9 +58,14 @@ public class GameController {
     }
 
     public void move(DIRECTION directionToMove) {
-        character.move(directionToMove);
-        this.status.currentPosition = character.getPosition().coordinates;
-        this.status.moveCount = character.getMoveCount();
+        int random = new Random().nextInt(3)+1;
+        if (random == 1) {
+            new EnemyEvent();
+        } else {
+            character.move(directionToMove);
+            this.status.currentPosition = character.getPosition().coordinates;
+            this.status.moveCount = character.getMoveCount();
+        }
     }
 
     //Exists for testability. Is not a system operation.
